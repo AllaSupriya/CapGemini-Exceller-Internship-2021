@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	 
+	 
+	 <bean id="student" class="com.spring.beans.Student">
+	 	<constructor-arg value="1216" name="sId"/>
+	 	<constructor-arg value="Priya" name="studentName"/>
+	 </bean>
+	 
+	 <bean id="student1" class="com.spring.beans.Student">
+	 	<property name="sId" value="1216"></property>
+	 	<property name="studentName" value="Priya"></property>
+	 	<property name="course" ref="course1"></property>
+	 </bean>
+	 
+	 <bean id="student2" class="com.spring.beans.Student">
+	 	<property name="sId" value="1254"></property>
+	 	<property name="studentName" value="Usha"></property>
+	 	<property name="course" ref="course2"></property>
+	 </bean>
+	 
+	 <bean id="course1" class="com.spring.beans.Course">
+	 	<property name="cId" value="254"></property>
+	 	<property name="cName" value="Java"></property>
+	 	
+	 </bean>
+	 
+	 <bean id="course2" class="com.spring.beans.Course">
+	 	<property name="cId" value="346"></property>
+	 	<property name="cName" value="Oracle"></property>
+	 	
+	 </bean>
+	 
+	 
+	 
+</beans>
