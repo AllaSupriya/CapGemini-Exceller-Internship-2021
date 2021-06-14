@@ -1,0 +1,55 @@
+<input type="text" size="60" placeholder="search package"/>
+
+
+<hr/> 
+<b>Property Bindig example</b>
+<br/>
+1 <input type="text" value="{{name}}"/> <br/>
+2 <input type="text" [hidden]="isHidden"  value="{{name}}"/>
+
+<hr/>
+package info 
+<br/>
+Package-Name <b style="margin-left: 10%;font-size:medium ;">  {{package.packageName}} </b><br/>
+Package-Cost <b style="margin-left: 10%;font-size:medium ;"> {{package.packageCost}}</b> <br/>
+Package-Days <b style="margin-left: 10%;font-size:medium ;"> {{package.days}} </b> <br/>
+Package-Selection <b style="margin-left: 10%;font-size:medium ;">  {{package.selected}}  </b> <br/>
+Recommendation {{(package.packageCost <= 55000) ?"Fair-Deal":"Bad-Deal"}}
+
+<br/>
+
+<table *ngFor="let package of getAllPackages()">
+    <tr>
+        <td> Package-Name  <b style="margin-left: 10%;font-size:medium ;">  {{package.packageName}} </b><br/> </td>
+        <td> Package-Cost  <b style="margin-left: 10%;font-size:medium ;">  {{package.packageCost}} </b><br/> </td>
+        <td> Package-Days  <b style="margin-left: 10%;font-size:medium ;">  {{package.days}} </b><br/> </td>
+        <td> Package-Selection  <b style="margin-left: 10%;font-size:medium ;">  {{package.selected}} </b><br/> </td>
+        <td> Package-Recommendation  <b style="margin-left: 10%;font-size:medium ;">  {{(package.packageCost <= 55000) ?"Fair-Deal":"Bad-Deal"}} </b><br/> </td>
+ 
+    </tr>
+</table>
+
+
+<br/><br/><br/> 
+<u>Template Reference Demo </u>
+<br/>
+User Cost Value <b style="margin-left: 10%;font-size:medium ;"> {{userCost}}  </b>
+
+Enter the cost 
+<input type="text" #myCost/>
+<button (click)="getCostFromUser(myCost.value)">Submit Your Cost</button>
+
+
+<div *ngIf="isAccepted;then buyTemplate else rejectedTemplate">
+    
+</div>
+
+<ng-template #buyTemplate>
+    <button [hidden]="!isAccepted"  (click)="doBuyPackage()">Buy Package</button>
+</ng-template>
+<ng-template #rejectedTemplate>
+    <h3 [hidden]="isAccepted" > Price Rejected by the Admin </h3>
+</ng-template>
+
+
+
